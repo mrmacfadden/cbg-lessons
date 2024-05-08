@@ -1,11 +1,18 @@
 /* Custom CSS styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+}
+#songInfo{
+    min-height:25px;
+    margin-bottom:25px;
 }
 
 .list-group-item {
     cursor: pointer;
+}
+
+.list-group-item span{
+    margin-left:15px;
 }
 
 /* Responsive video player */

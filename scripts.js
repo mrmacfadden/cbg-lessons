@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update song info
         songInfo.innerHTML = `
-            <strong>Title:</strong> ${song.title}<br>
-            <strong>Artist:</strong> ${song.artist}<br>
+            <strong>Title:</strong> ${song.title}
+            <strong>Artist:</strong> ${song.artist}
             <strong>Description:</strong> ${song.description}<br>
             <strong>Tags:</strong> ${song.tags}
         `;
