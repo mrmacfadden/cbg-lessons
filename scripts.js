@@ -46,19 +46,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to display songs in the list
-function displaySongs(songsToDisplay) {
-    songList.innerHTML = ''; // Clear existing list
+    function displaySongs(songsToDisplay) {
+        songList.innerHTML = ''; // Clear existing list
 
-    songsToDisplay.forEach(song => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${song.title} - ${song.artist}`; // Display title and artist
-        listItem.classList.add('list-group-item');
-        listItem.addEventListener('click', () => {
-            playSong(song);
+        songsToDisplay.forEach(song => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('list-group-item');
+            
+            // Create a div to hold title and artist
+            const titleArtistDiv = document.createElement('div');
+            titleArtistDiv.style.display = 'inline-block'; // Display inline-block
+            titleArtistDiv.textContent = `${song.title} - ${song.artist}`; // Display title and artist
+            
+            // Create a span for tags
+            const tagsSpan = document.createElement('span');
+            tagsSpan.style.display = 'inline'; // Display inline
+            tagsSpan.style.fontSize = '80%'; // Smaller font size for tags
+            tagsSpan.style.fontWeight = 'lighter'; // Lighter font weight for tags
+            tagsSpan.textContent = song.tags; // Display tags
+            
+            // Append title, artist, and tags to the list item
+            listItem.appendChild(titleArtistDiv);
+            //listItem.appendChild(document.createElement('br')); // Add line break
+            listItem.appendChild(tagsSpan);
+
+            // Click event listener to play the song
+            listItem.addEventListener('click', () => {
+                playSong(song);
+            });
+
+            // Append the list item to the song list
+            songList.appendChild(listItem);
         });
-        songList.appendChild(listItem);
-    });
-}
+    }
+
 
 
     // Function to play selected song
@@ -92,26 +113,32 @@ function displaySongs(songsToDisplay) {
         }
     }
 
-    // Function to filter songs by tag
-    window.filterByTag = function(tag) {
+// Function to filter songs by tag
+window.filterByTag = function(tag) {
+    const filterButton = document.querySelector(`button[data-tag="${tag}"]`);
+    const isActive = filterButton.classList.contains('active');
+
+    if (isActive) {
+        // If button is already active, remove the filter
+        displaySongs(songs); // Display all songs
+        filterButton.classList.remove('active'); // Remove 'active' class from the button
+    } else {
+        // Filter songs based on the selected tag
         const filteredSongs = songs.filter(song => {
             return song.tags.toLowerCase().includes(tag.toLowerCase());
         });
-        displaySongs(filteredSongs);
-
-
-        // Remove 'active' class from all buttons
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
-            button.classList.remove('active');
-        });
-
-        // Add 'active' class to the clicked button
-        const clickedButton = document.querySelector(`button[data-tag="${tag}"]`);
-        if (clickedButton) {
-            clickedButton.classList.add('active');
-        }
+        displaySongs(filteredSongs); // Display filtered songs
+        filterButton.classList.add('active'); // Add 'active' class to the button
     }
+
+    // Remove 'active' class from other filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        if (button !== filterButton) {
+            button.classList.remove('active');
+        }
+    });
+};
 
 });
 
