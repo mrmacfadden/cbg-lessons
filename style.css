@@ -1,6 +1,7 @@
 /* Custom CSS styles */
 body {
     font-family: Arial, sans-serif;
+    padding-bottom:100px;
 }
 #songInfo{
     min-height:25px;

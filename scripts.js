@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const songs = [
         {
+            title: "Fast Car",
+            artist: "Tracy Chapman",
+            youtubeLink: "https://youtu.be/ps9cBeZ43r8?si=oMle8jjQmnF_YSF2",
+            description: "Fast Car by Tracy Chapman on a four string",
+            tags: "#Rock, #4string,#fingerpicking, #ThatBeardedGuitarGuy"
+        },
+        {
+            title: "Radioactive",
+            artist: "Imagine Dragons",
+            youtubeLink: "https://youtu.be/Z9VlFHHb7vk?si=8xt3Pdo8R_0SxzoD",
+            description: "Radio active by Imagine Dragons.",
+            tags: "#pop, #4string,#fingerpicking, #ThatBeardedGuitarGuy"
+        },
+        {
             title: "Hey Joe",
             artist: "Jimi Hendrix",
             youtubeLink: "https://youtu.be/E_vQaZ3Dr20?si=9Acuj4WdsZ_yB8GT",
@@ -22,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
             tags: "#southernfireguitars"
         }
     ];
+
+    // Sort songs array alphabetically by title
+    songs.sort((a, b) => {
+        // Convert titles to lowercase for case-insensitive comparison
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        if (titleA < titleB) return -1;
+        if (titleA > titleB) return 1;
+        return 0;
+    });
 
     const songList = document.getElementById('songList');
     const videoContainer = document.getElementById('videoContainer');
