@@ -202,12 +202,17 @@ if (songId) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const shareButton = document.getElementById('shareButton');
-    const url = window.location.href;
-    const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
+    //const url = window.location.href;
+    const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
+    const queryParams = window.location.search; // Get query parameters if they exist
+
+    const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${baseUrl}${queryParams}`;
 
     shareButton.addEventListener('click', function() {
-        const url = window.location.href;
-        const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
+        //const url = window.location.href;
+        const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
+        const queryParams = window.location.search; // Get query parameters if they exist
+        const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${baseUrl}${queryParams}`;
         if (navigator.share) {
             // Share using Web Share API (mobile)
             navigator.share({
