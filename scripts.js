@@ -201,6 +201,65 @@ document.addEventListener('DOMContentLoaded', function() {
     const shareButton = document.getElementById('shareButton');
     const url = window.location.href;
     const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
+
+    shareButton.addEventListener('click', function() {
+        if (navigator.share) {
+            // Share using Web Share API (mobile)
+            navigator.share({
+                title: document.title,
+                url: url
+            }).then(() => {
+                displayMessage("Link shared successfully!");
+            }).catch((error) => {
+                console.error('Error sharing:', error);
+                // Fallback to copy URL to clipboard for non-mobile devices
+                copyToClipboard(shareMessage);
+            });
+        } else {
+            // Copy URL to clipboard (non-mobile)
+            copyToClipboard(shareMessage);
+        }
+    });
+
+    // Function to display a message on the webpage
+    function displayMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        messageElement.style.backgroundColor = 'rgba(0, 123, 255, 0.8)';
+        messageElement.style.color = '#fff';
+        messageElement.style.padding = '10px';
+        messageElement.style.position = 'fixed';
+        messageElement.style.top = '50%';
+        messageElement.style.left = '50%';
+        messageElement.style.transform = 'translate(-50%, -50%)';
+        messageElement.style.zIndex = '9999';
+        document.body.appendChild(messageElement);
+
+        // Remove the message after a few seconds (e.g., 3 seconds)
+        setTimeout(() => {
+            messageElement.remove();
+        }, 3000); // Remove after 3 seconds
+    }
+
+    // Function to copy text to clipboard
+    function copyToClipboard(text) {
+        const textField = document.createElement('textarea');
+        textField.value = text;
+        document.body.appendChild(textField);
+        textField.select();
+        document.execCommand('copy');
+        document.body.removeChild(textField);
+        displayMessage("Link copied to clipboard!");
+    }
+});
+
+
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    const shareButton = document.getElementById('shareButton');
+    const url = window.location.href;
+    const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
     
     shareButton.addEventListener('click', function() {
         const url = window.location.href;
@@ -227,3 +286,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+*/
