@@ -212,14 +212,14 @@ document.addEventListener('DOMContentLoaded', function() {
         //const url = window.location.href;
         const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
         const queryParams = window.location.search; // Get query parameters if they exist
-        const shareMessage = 'Check out this cigar box guitar lesson: ${baseUrl}${queryParams}';
+        const shareMessage = `Check out this cigar box guitar lesson: ${baseUrl}${queryParams}`;
         if (navigator.share) {
             // Share using Web Share API (mobile)
             navigator.share({
                 title: document.title,
                 text: 'check out this lesson on:',
                 url: url
-            });
+            })
         } else {
             // Copy URL to clipboard (non-mobile)
             copyToClipboard(shareMessage);
