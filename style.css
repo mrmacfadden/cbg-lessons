@@ -22,6 +22,8 @@ body {
 #songInfo{
     min-height:25px;
     margin-bottom:25px;
+    color:#1E1E1E;
+    font-size:14px;
 }
 
 .list-group-item {
