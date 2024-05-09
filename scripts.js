@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Share using Web Share API (mobile)
             navigator.share({
                 title: document.title,
-                text: 'check out this lesson on:',
+                text: `check out this lesson on:`,
                 url: url
             })
         } else {
