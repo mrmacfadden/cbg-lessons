@@ -197,24 +197,23 @@ if (songId) {
 
 });
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const shareButton = document.getElementById('shareButton');
     const url = window.location.href;
     const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
 
     shareButton.addEventListener('click', function() {
+        const url = window.location.href;
+        const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
         if (navigator.share) {
             // Share using Web Share API (mobile)
             navigator.share({
                 title: document.title,
-                url: url
-            }).then(() => {
-                displayMessage("Link shared successfully!");
-            }).catch((error) => {
-                console.error('Error sharing:', error);
-                // Fallback to copy URL to clipboard for non-mobile devices
-                copyToClipboard(shareMessage);
-            });
+                url: shareMessage
+            })
         } else {
             // Copy URL to clipboard (non-mobile)
             copyToClipboard(shareMessage);
@@ -252,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
         displayMessage("Link copied to clipboard!");
     }
 });
-
 
 
 /*
