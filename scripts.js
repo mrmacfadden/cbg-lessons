@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Share using Web Share API (mobile)
             navigator.share({
                 title: document.title,
-                url: shareMessage
+                text: shareMessage
             })
         } else {
             // Copy URL to clipboard (non-mobile)
