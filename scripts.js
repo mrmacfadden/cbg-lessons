@@ -1,39 +1,52 @@
 document.addEventListener('DOMContentLoaded', function() {
     const songs = [
         {
+            title: "Tennessee Whiskey",
+            artist: "Chris Stapleton",
+            youtubeLink: "https://youtu.be/Nc2ehWOBNTA?si=kZ75a7OgV12KCab5",
+            description: "Fast Car by Tracy Chapman on a four string",
+            tags: "#Country, #3string, #BluesboyJag",
+            id:6
+        },
+        {
             title: "Fast Car",
             artist: "Tracy Chapman",
             youtubeLink: "https://youtu.be/ps9cBeZ43r8?si=oMle8jjQmnF_YSF2",
             description: "Fast Car by Tracy Chapman on a four string",
-            tags: "#Rock, #4string,#fingerpicking, #ThatBeardedGuitarGuy"
+            tags: "#Rock, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
+            id:5
         },
         {
             title: "Radioactive",
             artist: "Imagine Dragons",
             youtubeLink: "https://youtu.be/Z9VlFHHb7vk?si=8xt3Pdo8R_0SxzoD",
             description: "Radio active by Imagine Dragons.",
-            tags: "#pop, #4string,#fingerpicking, #ThatBeardedGuitarGuy"
+            tags: "#pop, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
+            id:4
         },
         {
             title: "Hey Joe",
             artist: "Jimi Hendrix",
             youtubeLink: "https://youtu.be/E_vQaZ3Dr20?si=9Acuj4WdsZ_yB8GT",
             description: "Jimi Hendrix tune in D.",
-            tags: "#rock, #cbg, #3string, #unclemark"
+            tags: "#rock, #cbg, #3string, #unclemark",
+            id:3
         },
         {
             title: "Honkey Tonk Woman",
             artist: "The Rolling Stones",
             youtubeLink: "https://youtu.be/9FX1vPTwrwo?si=2XuBZdIlj-aiW5h2",
             description: "The Rolling Stones on a three string guitar.",
-            tags: "#mikesnowden, #3StringThursday"
+            tags: "#mikesnowden, #3StringThursday",
+            id:2
         },
         {
             title: "Can't You See",
             artist: "Marshall Tucker Band",
             youtubeLink: "https://youtu.be/ETrinUfkGfk?si=WO415nzEalPz4byF",
             description: "3 String Cigar Box Guitar Lesson. Cigar box guitar tuned to an open G (GDG)",
-            tags: "#southernfireguitars"
+            tags: "#southernfireguitars",
+            id:1
         }
     ];
 
@@ -118,11 +131,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update song info
         songInfo.innerHTML = `
-            <strong>Title:</strong> ${song.title}
-            <strong>Artist:</strong> ${song.artist}
+            <strong>Title:</strong> ${song.title}<br>
+            <strong>Artist:</strong> ${song.artist}<br>
             <strong>Description:</strong> ${song.description}<br>
             <strong>Tags:</strong> ${song.tags}
         `;
+
+        // Add song ID as a query parameter to the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('id', song.id); // Set 'id' query parameter with song ID
+        const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}`;
+        window.history.pushState({ path: newUrl }, '', newUrl); // Update URL without reloading
     }
 
     // Helper function to extract YouTube video ID from URL
@@ -164,6 +183,47 @@ window.filterByTag = function(tag) {
     });
 };
 
+// Check if there is a song ID in the URL query string onload
+const urlParams = new URLSearchParams(window.location.search);
+const songId = urlParams.get('id');
+if (songId) {
+    // Find the song with the matching ID
+    const selectedSong = songs.find(song => song.id.toString() === songId);
+    if (selectedSong) {
+        // Play the selected song
+        playSong(selectedSong);
+    }
+}
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const shareButton = document.getElementById('shareButton');
+    const url = window.location.href;
+    const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
+    
+    shareButton.addEventListener('click', function() {
+        if (navigator.share) {
+            // Share using Web Share API (mobile)
+            navigator.share({
+                title: document.title,
+                url: url
+            }).then(() => {
+                alert(`"${shareMessage}"\nCopied to the clipboard`);
+            }).catch((error) => {
+                console.error('Error sharing:', error);
+            });
+        } else {
+            // Copy URL to clipboard (non-mobile)
+            const textField = document.createElement('textarea');
+            textField.value = shareMessage;
+            document.body.appendChild(textField);
+            textField.select();
+            document.execCommand('copy');
+            document.body.removeChild(textField);
+            alert(`"${shareMessage}"\nCopied to the clipboard`);
+        }
+    });
 });
 
 

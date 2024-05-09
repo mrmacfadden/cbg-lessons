@@ -6,14 +6,28 @@
     <title>CBG Lessons</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Fixed Navbar -->
+    <nav class="navbar bg-light navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">CBG LESSONS</a>
+            <!-- Button to trigger the modal -->
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-dark">
+                <i class="bi bi-question-circle"></i>
+            </a>
+        </div>
+    </nav>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <a href="/"><h1 class="text-center mb-4">CBG Lessons</h1></a>
+            <div class="col-lg-8 offset-lg-2"> 
 
                 <!-- Video Player -->
                 <div class="embed-responsive embed-responsive-16by9 mb-4" id="videoContainer">
@@ -22,6 +36,11 @@
 
                 <!-- Song Info -->
                 <div id="songInfo"></div>
+
+                <!-- Share Button -->
+                <button class="btn btn-primary" id="shareButton">
+                    <i class="bi bi-share"></i> Share
+                </button>
 
                 <!-- Search Bar -->
                 <div class="mb-3">
@@ -41,6 +60,37 @@
 
                 <!-- Song List -->
                 <ul class="list-group" id="songList"></ul>
+
+
+
+                <!-- Bootstrap Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fw-bold" id="exampleModalLabel">Welcome to CBGLessons.com</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                    <p>Discover the soulful world of cigar box guitars (CBGs) and explore a curated selection of lessons designed to inspire and empower musicians of all levels.</p>
+                                    <p>Whether you're a seasoned guitarist or just starting out, our collection of CBG lessons offers something special for everyone.</p>
+                                    <h4>What Makes Us Unique?</h4>
+                                    <ul>
+                                        <li>Learn from renowned artists who specialize in cigar box guitars, each bringing their own style and expertise to the table.</li>
+                                        <li>Dive into carefully curated lessons that cover a range of genres, techniques, and playing styles, ensuring a rich and engaging learning experience.</li>
+                                        <li>Join a vibrant community of CBG enthusiasts and share your musical journey with fellow learners from around the world.</li>
+                                    </ul>
+                                    <p>Whether you're here to master new skills or simply enjoy the raw, authentic sound of CBGs, we're thrilled to have you join us.</p>
+                                    <p>Let the music begin!</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <!-- Add additional buttons or actions here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
 
             </div>
         </div>
