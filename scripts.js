@@ -256,37 +256,3 @@ document.addEventListener('DOMContentLoaded', function() {
         displayMessage("Link copied to clipboard!");
     }
 });
-
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const shareButton = document.getElementById('shareButton');
-    const url = window.location.href;
-    const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
-    
-    shareButton.addEventListener('click', function() {
-        const url = window.location.href;
-        const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
-        if (navigator.share) {
-            // Share using Web Share API (mobile)
-            navigator.share({
-                title: document.title,
-                url: url
-            }).then(() => {
-                alert(`"${shareMessage}"\nCopied to the clipboard`);
-            }).catch((error) => {
-                console.error('Error sharing:', error);
-            });
-        } else {
-            // Copy URL to clipboard (non-mobile)
-            const textField = document.createElement('textarea');
-            textField.value = shareMessage;
-            document.body.appendChild(textField);
-            textField.select();
-            document.execCommand('copy');
-            document.body.removeChild(textField);
-            alert(`"${shareMessage}"\nCopied to the clipboard`);
-        }
-    });
-});
-*/
