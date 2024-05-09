@@ -27,17 +27,17 @@
 </head>
 <body>
     <!-- Fixed Navbar -->
-    <nav class="navbar bg-light navbar-expand-lg fixed-top">
+    <nav class="navbar bg-light navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="/cbg-lessons">CBG<span>LESSONS</span></a>
-            <!-- Share Button -->
-            <button class="btn btn-primary" id="shareButton" onclick="shareURL();">
-                <i class="bi bi-share"></i> Share
-            </button>
-            <!-- Button to trigger the modal -->
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-dark">
-                <i class="bi bi-question-circle"></i>
-            </a>
+            <div class="nav-buttons">
+                <!-- Share Button -->
+                <i id="shareButton" onclick="shareURL();" class="bi bi-share"></i>
+                <!-- Button to trigger the modal -->
+                <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-dark">
+                    <i class="bi bi-question-circle"></i>
+                </a>
+            </div>
         </div>
     </nav>
     <div class="container mt-5">
@@ -59,10 +59,10 @@
 
                 <!-- Filter Buttons -->
                 <div class="mb-3">
-                    <button class="btn btn-outline-primary mr-2 filter-btn" data-tag="#rock" onclick="filterByTag('#rock')">#Rock</button>
-                    <button class="btn btn-outline-primary mr-2 filter-btn" data-tag="#cbg" onclick="filterByTag('#cbg')">#CBG</button>
-                    <button class="btn btn-outline-primary mr-2 filter-btn" data-tag="#3string" onclick="filterByTag('#3string')">#3-String</button>
-                    <button class="btn btn-outline-primary mr-2 filter-btn" data-tag="#4string" onclick="filterByTag('#4string')">#4string</button>
+                    <button class="btn btn-sm btn-outline-dark mr-2 filter-btn" data-tag="#rock" onclick="filterByTag('#rock')">#Rock</button>
+                    <button class="btn btn-sm btn-outline-dark mr-2 filter-btn" data-tag="#cbg" onclick="filterByTag('#cbg')">#CBG</button>
+                    <button class="btn btn-sm btn-outline-dark mr-2 filter-btn" data-tag="#3string" onclick="filterByTag('#3string')">#3-String</button>
+                    <button class="btn btn-sm btn-outline-dark mr-2 filter-btn" data-tag="#4string" onclick="filterByTag('#4string')">#4string</button>
                     <!-- Add more buttons for other tags as needed -->
                 </div>
 
@@ -70,38 +70,52 @@
 
                 <!-- Song List -->
                 <ul class="list-group" id="songList"></ul>
+                
+            </div>
+        </div>
+    </div>
 
-
-
-                <!-- Bootstrap Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title fw-bold" id="exampleModalLabel">Welcome to CBGLessons.com</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                    <p>Discover the soulful world of cigar box guitars (CBGs) and explore a curated selection of lessons designed to inspire and empower musicians of all levels.</p>
-                                    <p>Whether you're a seasoned guitarist or just starting out, our collection of CBG lessons offers something special for everyone.</p>
-                                    <h4>What Makes Us Unique?</h4>
-                                    <ul>
-                                        <li>Learn from renowned artists who specialize in cigar box guitars, each bringing their own style and expertise to the table.</li>
-                                        <li>Dive into carefully curated lessons that cover a range of genres, techniques, and playing styles, ensuring a rich and engaging learning experience.</li>
-                                        <li>Join a vibrant community of CBG enthusiasts and share your musical journey with fellow learners from around the world.</li>
-                                    </ul>
-                                    <p>Whether you're here to master new skills or simply enjoy the raw, authentic sound of CBGs, we're thrilled to have you join us.</p>
-                                    <p>Let the music begin!</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <!-- Add additional buttons or actions here -->
-                            </div>
-                        </div>
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-lg-8 offset-lg-2"> 
+                <p>
+                    <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Suggest a Tutorial
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoyBOEnuHcLIdlZVR8x5k491mDanKnuEfoD_0G9cUmskEbAw/viewform?embedded=true" width="100%" height="1550" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Welcome to CBGLessons.com</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <p>Discover the soulful world of cigar box guitars (CBGs) and explore a curated selection of lessons designed to inspire and empower musicians of all levels.</p>
+                        <p>Whether you're a seasoned guitarist or just starting out, our collection of CBG lessons offers something special for everyone.</p>
+                        <h4>What Makes Us Unique?</h4>
+                        <ul>
+                            <li>Learn from renowned artists who specialize in cigar box guitars, each bringing their own style and expertise to the table.</li>
+                            <li>Dive into carefully curated lessons that cover a range of genres, techniques, and playing styles, ensuring a rich and engaging learning experience.</li>
+                            <li>Join a vibrant community of CBG enthusiasts and share your musical journey with fellow learners from around the world.</li>
+                        </ul>
+                        <p>Whether you're here to master new skills or simply enjoy the raw, authentic sound of CBGs, we're thrilled to have you join us.</p>
+                        <p>Let the music begin!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- Add additional buttons or actions here -->
+                </div>
             </div>
         </div>
     </div>

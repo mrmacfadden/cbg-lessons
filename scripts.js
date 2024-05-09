@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayMessage(message) {
         const messageElement = document.createElement('div');
         messageElement.textContent = message;
-        messageElement.style.backgroundColor = 'rgba(0, 123, 255, 0.8)';
+        messageElement.style.backgroundColor = 'rgba(0, 123, 255, 1)';
         messageElement.style.color = '#fff';
         messageElement.style.padding = '10px';
         messageElement.style.position = 'fixed';

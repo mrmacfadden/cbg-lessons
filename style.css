@@ -1,7 +1,7 @@
 /* Custom CSS styles */
 body {
     font-family: Arial, sans-serif;
-    padding:70px 0 100px 0;
+    padding:0 0 100px 0;
     color:#1E1E1E;
 }
 .navbar{
@@ -14,6 +14,10 @@ body {
 }
 .navbar-brand span{
     font-weight: 100;
+}
+.nav-buttons i{
+    margin:0 10px;
+    cursor:pointer;
 }
 #songInfo{
     min-height:25px;
