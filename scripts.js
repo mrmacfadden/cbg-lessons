@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageElement.style.color = '#fff';
         messageElement.style.padding = '10px';
         messageElement.style.position = 'fixed';
-        messageElement.style.top = '50%';
+        messageElement.style.top = '70px';
         messageElement.style.left = '50%';
         messageElement.style.transform = 'translate(-50%, -50%)';
         messageElement.style.zIndex = '9999';
