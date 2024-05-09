@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navigator.share({
                 title: document.title,
                 text: `check out this lesson on:`,
-                url: url
+                url: baseUrl+queryParams
             })
         } else {
             // Copy URL to clipboard (non-mobile)
