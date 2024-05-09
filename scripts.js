@@ -203,6 +203,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
     
     shareButton.addEventListener('click', function() {
+        const url = window.location.href;
+        const shareMessage = `Check out this cigar box guitar lesson on CBGLessons.com: ${url}`;
         if (navigator.share) {
             // Share using Web Share API (mobile)
             navigator.share({
@@ -225,5 +227,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
