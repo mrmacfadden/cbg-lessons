@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const songs = [
         {
+            title: "Still Havent Found What I'm Looking For",
+            artist: "U2",
+            youtubeLink: "https://youtu.be/vEKcKkoRKtU?si=UaNwQ-aSPGbNIuiR",
+            description: "U2 on a four string? Yup!",
+            tags: "#Rock, #4string, #ThatBeardedGuitarGuy",
+            id:7
+        },
+        {
             title: "Tennessee Whiskey",
             artist: "Chris Stapleton",
             youtubeLink: "https://youtu.be/Nc2ehWOBNTA?si=kZ75a7OgV12KCab5",
