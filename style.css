@@ -42,9 +42,12 @@ body {
     padding: 0;
     overflow: hidden;
     min-height:482px;
-    background-color: #f1f1f1;
+    background-color: #FFFCEB;
 }
-
+.ad{
+    width:100%;
+    display: inline-block;
+}
 .embed-responsive::before {
     display: block;
     content: "";
