@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/vEKcKkoRKtU?si=UaNwQ-aSPGbNIuiR",
             description: "U2 on a four string? Yup!",
             tags: "#Rock, #4string, #ThatBeardedGuitarGuy",
-            id:7
+            id:7,
+            favorite: false
         },
         {
             title: "Tennessee Whiskey",
@@ -14,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/Nc2ehWOBNTA?si=kZ75a7OgV12KCab5",
             description: "Fast Car by Tracy Chapman on a four string",
             tags: "#Country, #3string, #BluesboyJag",
-            id:6
+            id:6,
+            favorite: false
         },
         {
             title: "Fast Car",
@@ -22,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/ps9cBeZ43r8?si=oMle8jjQmnF_YSF2",
             description: "Fast Car by Tracy Chapman on a four string",
             tags: "#Rock, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
-            id:5
+            id:5,
+            favorite: false
         },
         {
             title: "Radioactive",
@@ -30,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/Z9VlFHHb7vk?si=8xt3Pdo8R_0SxzoD",
             description: "Radio active by Imagine Dragons.",
             tags: "#pop, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
-            id:4
+            id:4,
+            favorite: false
         },
         {
             title: "Hey Joe",
@@ -38,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/E_vQaZ3Dr20?si=9Acuj4WdsZ_yB8GT",
             description: "Jimi Hendrix tune in D.",
             tags: "#rock, #cbg, #3string, #unclemark",
-            id:3
+            id:3,
+            favorite: false
         },
         {
             title: "Honkey Tonk Woman",
@@ -46,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/9FX1vPTwrwo?si=2XuBZdIlj-aiW5h2",
             description: "The Rolling Stones on a three string guitar.",
             tags: "#mikesnowden, #3StringThursday",
-            id:2
+            id:2,
+            favorite: false
         },
         {
             title: "Can't You See",
@@ -54,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
             youtubeLink: "https://youtu.be/ETrinUfkGfk?si=WO415nzEalPz4byF",
             description: "3 String Cigar Box Guitar Lesson. Cigar box guitar tuned to an open G (GDG)",
             tags: "#southernfireguitars",
-            id:1
+            id:1,
+            favorite: false
         }
     ];
 
@@ -94,36 +101,87 @@ document.addEventListener('DOMContentLoaded', function() {
     function displaySongs(songsToDisplay) {
         songList.innerHTML = ''; // Clear existing list
 
+        // Retrieve favorited songs from localStorage or initialize an empty array
+        let favoritedSongs = JSON.parse(localStorage.getItem('favoritedSongs')) || [];
+
         songsToDisplay.forEach(song => {
             const listItem = document.createElement('li');
             listItem.classList.add('list-group-item');
-            
+
             // Create a div to hold title and artist
             const titleArtistDiv = document.createElement('div');
             titleArtistDiv.style.display = 'inline-block'; // Display inline-block
             titleArtistDiv.textContent = `${song.title} - ${song.artist}`; // Display title and artist
-            
+
             // Create a span for tags
             const tagsSpan = document.createElement('span');
             tagsSpan.style.display = 'inline'; // Display inline
             tagsSpan.style.fontSize = '80%'; // Smaller font size for tags
             tagsSpan.style.fontWeight = 'lighter'; // Lighter font weight for tags
             tagsSpan.textContent = song.tags; // Display tags
-            
-            // Append title, artist, and tags to the list item
+
+            // Create a span for the favorite icon
+            const favoriteIconSpan = document.createElement('span');
+            favoriteIconSpan.style.float = 'right'; // Float to the right for alignment
+
+            // Check if the song is favorited to display the appropriate star icon
+            if (favoritedSongs.includes(song.id)) {
+                // Song is favorited, display filled star icon
+                favoriteIconSpan.innerHTML = '<i class="bi bi-star-fill text-warning"></i>';
+            } else {
+                // Song is not favorited, display empty star icon
+                favoriteIconSpan.innerHTML = '<i class="bi bi-star text-secondary"></i>';
+            }
+
+            // Append title, artist, tags, and favorite icon to the list item
             listItem.appendChild(titleArtistDiv);
-            //listItem.appendChild(document.createElement('br')); // Add line break
+            listItem.appendChild(favoriteIconSpan);
+            listItem.appendChild(document.createElement('br')); // Add line break
             listItem.appendChild(tagsSpan);
 
-            // Click event listener to play the song
-            listItem.addEventListener('click', () => {
-                playSong(song);
+            // Click event listener for the list item
+            listItem.addEventListener('click', (event) => {
+                // Check if the click target is the favorite icon
+                if (!event.target.closest('.bi-star')) {
+                    // Play the song only if the click target is not the favorite icon
+                    playSong(song);
+                }
+            });
+
+            // Click event listener to toggle favorite status
+            favoriteIconSpan.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent list item click event when the star icon is clicked
+
+                // Toggle the favorite status of the song
+                const index = favoritedSongs.indexOf(song.id);
+                if (index !== -1) {
+                    // Song is currently favorited, unfavorite it
+                    favoritedSongs.splice(index, 1); // Remove song ID from favoritedSongs
+                } else {
+                    // Song is currently not favorited, favorite it
+                    favoritedSongs.push(song.id); // Add song ID to favoritedSongs
+                }
+
+                // Update local storage with updated favoritedSongs array
+                localStorage.setItem('favoritedSongs', JSON.stringify(favoritedSongs));
+
+                // Toggle the icon to reflect the updated favorite status
+                if (favoritedSongs.includes(song.id)) {
+                    // Song is favorited, display filled star icon
+                    favoriteIconSpan.innerHTML = '<i class="bi bi-star-fill text-warning"></i>';
+                } else {
+                    // Song is not favorited, display empty star icon
+                    favoriteIconSpan.innerHTML = '<i class="bi bi-star text-secondary"></i>';
+                }
             });
 
             // Append the list item to the song list
             songList.appendChild(listItem);
         });
     }
+
+
+
 
 
 
@@ -169,27 +227,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const filterButton = document.querySelector(`button[data-tag="${tag}"]`);
         const isActive = filterButton.classList.contains('active');
 
-        if (isActive) {
-            // If button is already active, remove the filter
-            displaySongs(songs); // Display all songs
-            filterButton.classList.remove('active'); // Remove 'active' class from the button
+        if (tag === 'favorited') {
+            // Toggle favorited filter
+            if (isActive) {
+                // If "Favorited" button is active, remove the filter
+                displaySongs(songs); // Display all songs
+                filterButton.classList.remove('active'); // Remove 'active' class from the button
+            } else {
+                // Filter songs to show only favorited songs
+                const favoritedSongs = JSON.parse(localStorage.getItem('favoritedSongs')) || [];
+                const filteredSongs = songs.filter(song => favoritedSongs.includes(song.id));
+                displaySongs(filteredSongs); // Display filtered songs
+                filterButton.classList.add('active'); // Add 'active' class to the button
+            }
         } else {
-            // Filter songs based on the selected tag
+            // Filter songs based on other tags
             const filteredSongs = songs.filter(song => {
                 return song.tags.toLowerCase().includes(tag.toLowerCase());
             });
             displaySongs(filteredSongs); // Display filtered songs
-            filterButton.classList.add('active'); // Add 'active' class to the button
+            filterButton.classList.toggle('active'); // Toggle 'active' class on the button
         }
 
         // Remove 'active' class from other filter buttons
         const filterButtons = document.querySelectorAll('.filter-btn');
         filterButtons.forEach(button => {
-            if (button !== filterButton) {
+            if (button !== filterButton && button.dataset.tag !== 'favorited') {
                 button.classList.remove('active');
             }
         });
     };
+
+    // Event listener for filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tag = button.dataset.tag;
+            filterByTag(tag);
+        });
+    });
+
 
     // Check if there is a song ID in the URL query string onload
     const urlParams = new URLSearchParams(window.location.search);
