@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         displaySongs(filteredSongs);
     });
 
-   // Function to display songs in the list
+    // Function to display songs in the list
     function displaySongs(songsToDisplay) {
         songList.innerHTML = ''; // Clear existing list
 
@@ -139,8 +139,20 @@ document.addEventListener('DOMContentLoaded', function() {
             listItem.appendChild(document.createElement('br')); // Add line break
             listItem.appendChild(tagsSpan);
 
-            // Click event listener to toggle favorite status and update icon
-            favoriteIconSpan.addEventListener('click', () => {
+            // Click event listener for the list item
+            listItem.addEventListener('click', (event) => {
+                // Check if the click target is the favorite icon
+                if (!event.target.closest('.bi-star')) {
+                    // Play the song only if the click target is not the favorite icon
+                    playSong(song);
+                }
+            });
+
+            // Click event listener to toggle favorite status
+            favoriteIconSpan.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent list item click event when the star icon is clicked
+
+                // Toggle the favorite status of the song
                 const index = favoritedSongs.indexOf(song.id);
                 if (index !== -1) {
                     // Song is currently favorited, unfavorite it
@@ -163,15 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Click event listener to play the song
-            listItem.addEventListener('click', () => {
-                playSong(song);
-            });
-
             // Append the list item to the song list
             songList.appendChild(listItem);
         });
     }
+
 
 
 
@@ -219,27 +227,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const filterButton = document.querySelector(`button[data-tag="${tag}"]`);
         const isActive = filterButton.classList.contains('active');
 
-        if (isActive) {
-            // If button is already active, remove the filter
-            displaySongs(songs); // Display all songs
-            filterButton.classList.remove('active'); // Remove 'active' class from the button
+        if (tag === 'favorited') {
+            // Toggle favorited filter
+            if (isActive) {
+                // If "Favorited" button is active, remove the filter
+                displaySongs(songs); // Display all songs
+                filterButton.classList.remove('active'); // Remove 'active' class from the button
+            } else {
+                // Filter songs to show only favorited songs
+                const favoritedSongs = JSON.parse(localStorage.getItem('favoritedSongs')) || [];
+                const filteredSongs = songs.filter(song => favoritedSongs.includes(song.id));
+                displaySongs(filteredSongs); // Display filtered songs
+                filterButton.classList.add('active'); // Add 'active' class to the button
+            }
         } else {
-            // Filter songs based on the selected tag
+            // Filter songs based on other tags
             const filteredSongs = songs.filter(song => {
                 return song.tags.toLowerCase().includes(tag.toLowerCase());
             });
             displaySongs(filteredSongs); // Display filtered songs
-            filterButton.classList.add('active'); // Add 'active' class to the button
+            filterButton.classList.toggle('active'); // Toggle 'active' class on the button
         }
 
         // Remove 'active' class from other filter buttons
         const filterButtons = document.querySelectorAll('.filter-btn');
         filterButtons.forEach(button => {
-            if (button !== filterButton) {
+            if (button !== filterButton && button.dataset.tag !== 'favorited') {
                 button.classList.remove('active');
             }
         });
     };
+
+    // Event listener for filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tag = button.dataset.tag;
+            filterByTag(tag);
+        });
+    });
+
 
     // Check if there is a song ID in the URL query string onload
     const urlParams = new URLSearchParams(window.location.search);
