@@ -31,7 +31,7 @@ body {
 }
 
 .list-group-item span{
-    margin-left:15px;
+    opacity:0.6;
 }
 
 /* Responsive video player */
@@ -72,6 +72,9 @@ body {
     color: #fff; /* Text color for active button */
 }
 
+.favorite{
+    border:2px solid;
+}
 .modal-trigger{
     position:absolute;
     top:5px;
