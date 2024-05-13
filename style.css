@@ -67,7 +67,6 @@ body {
     border: 0;
 }
 
-
 .filter-btn.active {
     background-color: #212529; /* Change to desired darker color */
     color: #fff; /* Text color for active button */
@@ -78,14 +77,4 @@ body {
     top:5px;
     right:10px;
     z-index: 10;
-}
-
-/* Custom CSS styles */
-
-/* Favorite icon styles */
-.favorite-icon {
-    float: right; /* Align the star icon to the right of each list item */
-    color: #ffc107; /* Default color for star icon */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    margin-left: 10px; /* Adjust spacing between star icon and song details */
 }
