@@ -48,6 +48,9 @@ body {
     width:100%;
     display: inline-block;
 }
+.ad-mobile{
+    max-height:482px;
+}
 .embed-responsive::before {
     display: block;
     content: "";

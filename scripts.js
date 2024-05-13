@@ -1,5 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     const songs = [
+        /*
+        {
+            title: "",
+            artist: "",
+            youtubeLink: "",
+            description: "",
+            tags: "",
+            id:,
+            favorite: false
+        },
+        */
+        {
+            title: "Sweet Home Alabama",
+            artist: "Lynyrd Skynyrd",
+            youtubeLink: "https://youtu.be/Twj-jaTZBBU?si=ZmMdCXQ8RrLXZsQE",
+            description: "How to play Sweet Home Alabama on 3 string box guitar",
+            tags: "#CrazyPossumBoxGuitars, #3String, #Rock, #SouthernRock",
+            id:9,
+            favorite: false
+        },
+        {
+            title: "Proud Mary",
+            artist: "Creedence Clearwater Revival",
+            youtubeLink: "https://youtu.be/924UuA4WU78?si=v7PnX9oxq2Ner6zG",
+            description: "How to play Proud Mary on 3 string box guitar.",
+            tags: "#CrazyPossumBoxGuitars, #3String, #Rock",
+            id:8,
+            favorite: false
+        },
         {
             title: "Still Havent Found What I'm Looking For",
             artist: "U2",
