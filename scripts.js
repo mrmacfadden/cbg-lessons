@@ -164,51 +164,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-// Function to filter songs by tag
-window.filterByTag = function(tag) {
-    const filterButton = document.querySelector(`button[data-tag="${tag}"]`);
-    const isActive = filterButton.classList.contains('active');
+    // Function to filter songs by tag
+    window.filterByTag = function(tag) {
+        const filterButton = document.querySelector(`button[data-tag="${tag}"]`);
+        const isActive = filterButton.classList.contains('active');
 
-    if (isActive) {
-        // If button is already active, remove the filter
-        displaySongs(songs); // Display all songs
-        filterButton.classList.remove('active'); // Remove 'active' class from the button
-    } else {
-        // Filter songs based on the selected tag
-        const filteredSongs = songs.filter(song => {
-            return song.tags.toLowerCase().includes(tag.toLowerCase());
-        });
-        displaySongs(filteredSongs); // Display filtered songs
-        filterButton.classList.add('active'); // Add 'active' class to the button
-    }
-
-    // Remove 'active' class from other filter buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        if (button !== filterButton) {
-            button.classList.remove('active');
+        if (isActive) {
+            // If button is already active, remove the filter
+            displaySongs(songs); // Display all songs
+            filterButton.classList.remove('active'); // Remove 'active' class from the button
+        } else {
+            // Filter songs based on the selected tag
+            const filteredSongs = songs.filter(song => {
+                return song.tags.toLowerCase().includes(tag.toLowerCase());
+            });
+            displaySongs(filteredSongs); // Display filtered songs
+            filterButton.classList.add('active'); // Add 'active' class to the button
         }
-    });
-};
 
-// Check if there is a song ID in the URL query string onload
-const urlParams = new URLSearchParams(window.location.search);
-const songId = urlParams.get('id');
-if (songId) {
-    // Find the song with the matching ID
-    const selectedSong = songs.find(song => song.id.toString() === songId);
-    if (selectedSong) {
-        // Play the selected song
-        playSong(selectedSong);
+        // Remove 'active' class from other filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            if (button !== filterButton) {
+                button.classList.remove('active');
+            }
+        });
+    };
+
+    // Check if there is a song ID in the URL query string onload
+    const urlParams = new URLSearchParams(window.location.search);
+    const songId = urlParams.get('id');
+    if (songId) {
+        // Find the song with the matching ID
+        const selectedSong = songs.find(song => song.id.toString() === songId);
+        if (selectedSong) {
+            // Play the selected song
+            playSong(selectedSong);
+        }
     }
-}
 
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
     const shareButton = document.getElementById('shareButton');
     //const url = window.location.href;
     const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
