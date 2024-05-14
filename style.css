@@ -88,5 +88,6 @@ body {
 @media (max-width: 576px) {
     .btn-sm{
        font-size:11px;
+       margin-bottom:5px;
     }    
 }

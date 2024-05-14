@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Elvis Presley",
             youtubeLink: "https://youtu.be/lurWIqeoEM8?si=HHKqrXz-hs7V1Gef",
             description: "Bluesboy Jag Cigar Box Guitar Lessons - Littel Sister",
-            tags: "#BluesboyJag, #4StringCigarBoxGuitar, #3String, #Elvis, #Rock #EAD",
+            tags: "#BluesboyJag, #3String, #Elvis, #Rock #EAD",
             id: 16,
             favorite: false
         },
