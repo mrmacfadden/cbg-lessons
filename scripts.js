@@ -12,11 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         */
         {
+            title: "Happy Birthday",
+            artist: "Mildred and Patty Smith Hill",
+            youtubeLink: "https://youtu.be/7aRQRsby9eM?si=xgCngBW9qUuNiWRy",
+            description: "Learn the most popular song in the world!",
+            tags: "#SouthernFireGuitars, #3String, #GDG",
+            id: 21,
+            favorite: false
+        },
+          
+        {
             title: "Hey Joe",
             artist: "Jimi Hendrix",
             youtubeLink: "https://youtu.be/5Gy6Y364AYY?si=IWZ9OITxHF54l_Mh",
             description: "How to Play Jimi Hendrix’s Hey Joe on the Cigar Box Guitar",
-            tags: "#DellPuckette, #Classic Rock, #Rock, #EBE",
+            tags: "#DellPuckette, #Classic Rock, #3String, #Rock, #EBE",
             id: 20,
             favorite: false
         },
@@ -26,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Collective Soul",
             youtubeLink: "http://www.youtube.com/watch?v=a5oXFwygnJM",
             description: "Easy Beginner Lesson for 3 String Cigar Box Guitars Only 3 One Finger Chords",
-            tags: "#UncleMark, #AlternativeeRock, #Rock, #F#C#F#",
+            tags: "#UncleMark, #AlternativeeRock, #3String, #Rock, #F#C#F#",
             id: 19,
             favorite: false
         },
@@ -36,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Collective Soul", // Using channel name
             youtubeLink: "https://youtu.be/Bt68NkPixTM?si=PxNvPPY_Ql_H9I1N",
             description: "This lesson is divided into 3 sections:  Verse/Main Riff/Chorus",
-            tags: "#DellPuckette, #AlternativeRock, #Rock, #G#C#G#",
+            tags: "#DellPuckette, #AlternativeRock, #3String, #Rock, #G#C#G#",
             id: 18,
             favorite: false
         },
@@ -56,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Elvis Presley",
             youtubeLink: "https://youtu.be/lurWIqeoEM8?si=HHKqrXz-hs7V1Gef",
             description: "Bluesboy Jag Cigar Box Guitar Lessons - Littel Sister",
-            tags: "#BluesboyJag, #4StringCigarBoxGuitar, #Elvis, #Rock #EAD",
+            tags: "#BluesboyJag, #4StringCigarBoxGuitar, #3String, #Elvis, #Rock #EAD",
             id: 16,
             favorite: false
         },
@@ -76,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Led Zeppelin",
             youtubeLink: "https://youtu.be/Z8IUtQ4LjDc?si=QgpKyIO4KeSbSyVV",
             description: "You need cooling, Baby I'm not fooling, I'm gonna send ya, Back to schooling",
-            tags: "#CrazypossumBoxGuitars, #CigarBoxGuitar, #WholeLottaLove, #Rock",
+            tags: "#CrazypossumBoxGuitars, #CigarBoxGuitar, #3String, #WholeLottaLove, #Rock",
             id: 14,
             favorite: false
         },
@@ -142,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Chris Stapleton",
             youtubeLink: "https://youtu.be/Nc2ehWOBNTA?si=kZ75a7OgV12KCab5",
             description: "Fast Car by Tracy Chapman on a four string",
-            tags: "#BluesboyJag, #Country, #3string",
+            tags: "#BluesboyJag, #Country, #3String",
             id:6,
             favorite: false
         },
@@ -169,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Jimi Hendrix",
             youtubeLink: "https://youtu.be/E_vQaZ3Dr20?si=9Acuj4WdsZ_yB8GT",
             description: "Jimi Hendrix tune in D.",
-            tags: "#unclemark, #rock, #cbg, #3string",
+            tags: "#unclemark, #rock, #cbg, #3String",
             id:3,
             favorite: false
         },
