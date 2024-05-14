@@ -12,6 +12,105 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         */
         {
+            title: "Hey Joe",
+            artist: "Jimi Hendrix",
+            youtubeLink: "https://youtu.be/5Gy6Y364AYY?si=IWZ9OITxHF54l_Mh",
+            description: "How to Play Jimi Hendrix’s Hey Joe on the Cigar Box Guitar",
+            tags: "#DellPuckette, #Classic Rock, #Rock, #EBE",
+            id: 20,
+            favorite: false
+        },
+          
+        {
+            title: "Shine",
+            artist: "Collective Soul",
+            youtubeLink: "http://www.youtube.com/watch?v=a5oXFwygnJM",
+            description: "Easy Beginner Lesson for 3 String Cigar Box Guitars Only 3 One Finger Chords",
+            tags: "#UncleMark, #AlternativeeRock, #Rock, #F#C#F#",
+            id: 19,
+            favorite: false
+        },
+          
+        {
+            title: "Shine",
+            artist: "Collective Soul", // Using channel name
+            youtubeLink: "https://youtu.be/Bt68NkPixTM?si=PxNvPPY_Ql_H9I1N",
+            description: "This lesson is divided into 3 sections:  Verse/Main Riff/Chorus",
+            tags: "#DellPuckette, #AlternativeRock, #Rock, #G#C#G#",
+            id: 18,
+            favorite: false
+        },
+          
+        {
+            title: "Jumping Jack Flash",
+            artist: "The Rolling Stones",
+            youtubeLink: "https://youtu.be/Bn2BF6eCYHo?si=_ucqwJz_UgQlrtmT",
+            description: "Bluesboy Jag Cigar Box Guitar Lessons - 3 String Cigar Box Guitar Lesson", 
+            tags: "#BluesboyJag, #3String, #Rock",
+            id: 17,
+            favorite: false
+        },
+          
+        {
+            title: "Little Sister",
+            artist: "Elvis Presley",
+            youtubeLink: "https://youtu.be/lurWIqeoEM8?si=HHKqrXz-hs7V1Gef",
+            description: "Bluesboy Jag Cigar Box Guitar Lessons - Littel Sister",
+            tags: "#BluesboyJag, #4StringCigarBoxGuitar, #Elvis, #Rock #EAD",
+            id: 16,
+            favorite: false
+        },
+          
+        {
+            title: "Boom Boom",
+            artist: "John Lee Hooker",
+            youtubeLink: "https://youtu.be/r5Y9MqEwbAI?si=4VWew9ol6AupFtIU",
+            description: "Bluesboy Jag Cigar Box Guitar Lessons - Boom Boom",
+            tags: "#BluesboyJag, #3String. #CigarBoxGuitar, #Blues, #Beginner",
+            id: 15,
+            favorite: false
+        },
+          
+        {
+            title: "Whole Lotta Love",
+            artist: "Led Zeppelin",
+            youtubeLink: "https://youtu.be/Z8IUtQ4LjDc?si=QgpKyIO4KeSbSyVV",
+            description: "You need cooling, Baby I'm not fooling, I'm gonna send ya, Back to schooling",
+            tags: "#CrazypossumBoxGuitars, #CigarBoxGuitar, #WholeLottaLove, #Rock",
+            id: 14,
+            favorite: false
+        },
+
+        {
+            title: "Tennessee Whiskey",
+            artist: "Chris Stapleton",
+            youtubeLink: "https://youtu.be/TYZaX66fcec?si=qQhfDCtQdMtHiPCo",
+            description: "a cigar box guitar tutorial on how to play Tennessee Whiskey", // Information unavailable from link
+            tags: "#CrazyPossumBoxGuitars, #3String, #TennesseeWhiskey, #Country",
+            id: 13, 
+            favorite: false
+        },
+          
+        {
+            title: "Folsom Prison Blues",
+            artist: "Johnny Cash", // Retrieved from video content
+            youtubeLink: "https://youtu.be/iTFiVAOQcjc?si=p4lR42DSBxlQ_jcs",
+            description: "A tutorial on how to play Folsom Prison Blues on a 3-string box guitar", // Using info from title
+            tags: "#CrazyPossumBoxGuitars, #3String, #FolsomPrisonBlues, #Country",
+            id: 12,
+            favorite: false
+        },
+          
+        {
+            title: "Wonderwall",
+            artist: "Oasis",
+            youtubeLink: "https://youtu.be/wa3F0flMffc?si=0KAVxNeC3YtJhj7g",
+            description: "A tutorial on how to play Wonderwall on a 3-string box guitar", // Using info from title
+            tags: "#CrazyPossumBoxGuitars, #3String, #Wonderwall, Rock",
+            id: 10,
+            favorite: false
+        },
+        {
             title: "Sweet Home Alabama",
             artist: "Lynyrd Skynyrd",
             youtubeLink: "https://youtu.be/Twj-jaTZBBU?si=ZmMdCXQ8RrLXZsQE",
@@ -34,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "U2",
             youtubeLink: "https://youtu.be/vEKcKkoRKtU?si=UaNwQ-aSPGbNIuiR",
             description: "U2 on a four string? Yup!",
-            tags: "#Rock, #4string, #ThatBeardedGuitarGuy",
+            tags: "#ThatBeardedGuitarGuy, #Rock, #4string",
             id:7,
             favorite: false
         },
@@ -43,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Chris Stapleton",
             youtubeLink: "https://youtu.be/Nc2ehWOBNTA?si=kZ75a7OgV12KCab5",
             description: "Fast Car by Tracy Chapman on a four string",
-            tags: "#Country, #3string, #BluesboyJag",
+            tags: "#BluesboyJag, #Country, #3string",
             id:6,
             favorite: false
         },
@@ -52,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Tracy Chapman",
             youtubeLink: "https://youtu.be/ps9cBeZ43r8?si=oMle8jjQmnF_YSF2",
             description: "Fast Car by Tracy Chapman on a four string",
-            tags: "#Rock, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
+            tags: "#ThatBeardedGuitarGuy, #Rock, #4string, #fingerpicking",
             id:5,
             favorite: false
         },
@@ -61,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Imagine Dragons",
             youtubeLink: "https://youtu.be/Z9VlFHHb7vk?si=8xt3Pdo8R_0SxzoD",
             description: "Radio active by Imagine Dragons.",
-            tags: "#pop, #4string,#fingerpicking, #ThatBeardedGuitarGuy",
+            tags: "#ThatBeardedGuitarGuy, #pop, #4string,#fingerpicking",
             id:4,
             favorite: false
         },
@@ -70,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Jimi Hendrix",
             youtubeLink: "https://youtu.be/E_vQaZ3Dr20?si=9Acuj4WdsZ_yB8GT",
             description: "Jimi Hendrix tune in D.",
-            tags: "#rock, #cbg, #3string, #unclemark",
+            tags: "#unclemark, #rock, #cbg, #3string",
             id:3,
             favorite: false
         },
@@ -79,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "The Rolling Stones",
             youtubeLink: "https://youtu.be/9FX1vPTwrwo?si=2XuBZdIlj-aiW5h2",
             description: "The Rolling Stones on a three string guitar.",
-            tags: "#mikesnowden, #3StringThursday",
+            tags: "#MikeSnowden, #Rock, #3StringThursday",
             id:2,
             favorite: false
         },
@@ -88,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
             artist: "Marshall Tucker Band",
             youtubeLink: "https://youtu.be/ETrinUfkGfk?si=WO415nzEalPz4byF",
             description: "3 String Cigar Box Guitar Lesson. Cigar box guitar tuned to an open G (GDG)",
-            tags: "#southernfireguitars",
+            tags: "#southernfireguitars, #Rock, #SouthernRock, #3String",
             id:1,
             favorite: false
         }
