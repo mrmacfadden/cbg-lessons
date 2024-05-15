@@ -93,6 +93,9 @@ LEARN
     text-transform: uppercase;
     font-weight:900;
 }
+.list-group-item i{
+    float:right;
+}
 
 
 /* Small devices (landscape phones, 576px and up)*/

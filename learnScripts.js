@@ -47,7 +47,7 @@ const videos = [
 // Array of courses
 const courses = [
     {
-        title: "Web Development Basics",
+        title: "Getting Started",
         videoIds: [1, 2, 4]
     },
     {
@@ -59,7 +59,6 @@ const courses = [
         videoIds: [5, 3, 6]
     }
 ];
-
 // Function to display courses and populate the first course on load
 function displayCourses() {
     const coursesList = document.getElementById("courses");
@@ -84,8 +83,6 @@ function displayCourses() {
         }
     });
 }
-
-
 // Function to update video list based on selected course
 function updateVideoList(videoIds) {
     const videoList = document.getElementById("videoList");
@@ -95,11 +92,51 @@ function updateVideoList(videoIds) {
         const video = videos.find(v => v.id === videoId);
         if (video) {
             const listItem = document.createElement("li");
+            const completionIcon = document.createElement("i");
+
+            // Retrieve completion status from local storage
+            const completionStatus = localStorage.getItem(`video_${videoId}_completed`);
+            video.complete = completionStatus === 'true'; // Set video's completion status
+
+            // Determine icon and color based on completion status
+            if (video.complete) {
+                completionIcon.classList.add('bi', 'bi-check-circle-fill');
+                completionIcon.style.color = 'green';
+            } else {
+                completionIcon.classList.add('bi', 'bi-check-circle');
+                completionIcon.style.color = 'inherit';
+            }
+
             listItem.textContent = video.title;
             listItem.classList.add('list-group-item');
             listItem.setAttribute("data-id", video.id);
-            listItem.addEventListener("click", () => playVideo(video));
+
+            // Add completion icon to the list item
+            listItem.appendChild(completionIcon);
             videoList.appendChild(listItem);
+
+            // Clicking on video list item should play the video
+            listItem.addEventListener("click", () => {
+                playVideo(video); // Play the video
+            });
+
+            // Toggle completion status on icon click
+            completionIcon.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent click event from propagating to the list item
+                video.complete = !video.complete; // Toggle completion status
+                saveVideoCompletionStatus(video.id, video.complete); // Save to local storage
+
+                // Update the completion icon appearance based on the new completion status
+                if (video.complete) {
+                    completionIcon.classList.remove('bi-check-circle');
+                    completionIcon.classList.add('bi-check-circle-fill');
+                    completionIcon.style.color = 'green';
+                } else {
+                    completionIcon.classList.remove('bi-check-circle-fill');
+                    completionIcon.classList.add('bi-check-circle');
+                    completionIcon.style.color = 'inherit';
+                }
+            });
         }
     });
 
@@ -115,6 +152,11 @@ function updateVideoList(videoIds) {
 
 
 
+
+// Function to save video completion status to local storage
+function saveVideoCompletionStatus(videoId, completed) {
+    localStorage.setItem(`video_${videoId}_completed`, completed);
+}
 
 
 // Function to play selected video
