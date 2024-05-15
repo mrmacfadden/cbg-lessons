@@ -84,6 +84,17 @@ body {
 }
 
 
+/*
+=================================================
+LEARN
+=================================================
+*/
+#course{
+    text-transform: uppercase;
+    font-weight:900;
+}
+
+
 /* Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
     .btn-sm{

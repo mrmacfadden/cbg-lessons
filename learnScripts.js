@@ -20,9 +20,9 @@ const videos = [
     },
     {
         id: 4,
-        title: "HTML5 Basics",
+        title: "HTML in 5 Minutes",
         description: "Learn the fundamentals of HTML5.",
-        youtubeLink: "https://www.youtube.com/watch?v=I2C8TsIYWtI"
+        youtubeLink: "https://youtu.be/salY_Sm6mv4?si=-8crvTZbBPw8Az26"
     },
     {
         id: 5,
@@ -46,25 +46,36 @@ const courses = [
     },
     {
         title: "Advanced CSS",
-        videoIds: [2, 5]
+        videoIds: [1, 2, 3, 4, 5, 6]
     },
     {
         title: "Node.js Development",
-        videoIds: [1, 3, 6]
+        videoIds: [5, 3, 6]
     }
 ];
 
-// Function to display courses
+// Function to display courses and populate the first course on load
 function displayCourses() {
     const coursesList = document.getElementById("courses");
+    const courseTitleElement = document.getElementById("course");
 
-    courses.forEach(course => {
+    // Populate courses list
+    courses.forEach((course, index) => {
         const courseItem = document.createElement("li");
         courseItem.textContent = course.title;
         courseItem.classList.add('list-group-item', 'course-item');
         courseItem.setAttribute("data-video-ids", course.videoIds.join(','));
-        courseItem.addEventListener("click", () => updateVideoList(course.videoIds));
+        courseItem.addEventListener("click", () => {
+            updateVideoList(course.videoIds);
+            courseTitleElement.textContent = course.title;
+        });
         coursesList.appendChild(courseItem);
+
+        // Display the first course on page load
+        if (index === 0) {
+            updateVideoList(course.videoIds); // Populate video list for the first course
+            courseTitleElement.textContent = course.title; // Set course title
+        }
     });
 }
 
@@ -84,6 +95,15 @@ function updateVideoList(videoIds) {
             videoList.appendChild(listItem);
         }
     });
+
+    // Load the first video from the updated video list into the video player
+    if (videoIds.length > 0) {
+        const firstVideoId = videoIds[0];
+        const firstVideo = videos.find(v => v.id === firstVideoId);
+        if (firstVideo) {
+            playVideo(firstVideo);
+        }
+    }
 }
 
 // Function to play selected video
@@ -115,5 +135,5 @@ function getYouTubeVideoId(url) {
     }
 }
 
-// Display initial list of courses
+// Display initial list of courses and populate the first course on load
 displayCourses();
