@@ -4,37 +4,43 @@ const videos = [
         id: 1,
         title: "Introduction to JavaScript",
         description: "Learn the basics of JavaScript programming.",
-        youtubeLink: "https://www.youtube.com/watch?v=PkZNo7MFNFg"
+        youtubeLink: "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+        complete: false
     },
     {
         id: 2,
         title: "CSS Flexbox Tutorial",
         description: "A comprehensive guide to CSS Flexbox layout.",
-        youtubeLink: "https://www.youtube.com/watch?v=JJSoEo8JSnc"
+        youtubeLink: "https://www.youtube.com/watch?v=JJSoEo8JSnc",
+        complete: false
     },
     {
         id: 3,
         title: "React.js Crash Course",
         description: "Build a React.js application from scratch.",
-        youtubeLink: "https://www.youtube.com/watch?v=Ke90Tje7VS0"
+        youtubeLink: "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+        complete: false
     },
     {
         id: 4,
         title: "HTML in 5 Minutes",
         description: "Learn the fundamentals of HTML5.",
-        youtubeLink: "https://youtu.be/salY_Sm6mv4?si=-8crvTZbBPw8Az26"
+        youtubeLink: "https://youtu.be/salY_Sm6mv4?si=-8crvTZbBPw8Az26",
+        complete: false
     },
     {
         id: 5,
         title: "Responsive Web Design",
         description: "Create responsive websites using CSS media queries.",
-        youtubeLink: "https://www.youtube.com/watch?v=2KL-z9A56SQ"
+        youtubeLink: "https://www.youtube.com/watch?v=2KL-z9A56SQ",
+        complete: false
     },
     {
         id: 6,
         title: "Node.js Tutorial for Beginners",
         description: "Get started with Node.js and build server-side applications.",
-        youtubeLink: "https://www.youtube.com/watch?v=TlB_eWDSMt4"
+        youtubeLink: "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+        complete: false
     }
 ];
 
@@ -46,7 +52,7 @@ const courses = [
     },
     {
         title: "Advanced CSS",
-        videoIds: [1, 2, 3, 4, 5, 6]
+        videoIds: [2, 2, 3, 4, 5, 6]
     },
     {
         title: "Node.js Development",
@@ -79,6 +85,7 @@ function displayCourses() {
     });
 }
 
+
 // Function to update video list based on selected course
 function updateVideoList(videoIds) {
     const videoList = document.getElementById("videoList");
@@ -105,6 +112,10 @@ function updateVideoList(videoIds) {
         }
     }
 }
+
+
+
+
 
 // Function to play selected video
 function playVideo(video) {
