@@ -2,37 +2,37 @@
 const videos = [
     {
         id: 1,
-        title: "Introduction to JavaScript",
-        description: "Learn the basics of JavaScript programming.",
-        youtubeLink: "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+        title: "Ultra Beginners Lesson",
+        description: "This video is tailored for absolute beginners. Dell Puckett offers a basic introduction intended for those new to the subject.",
+        youtubeLink: "https://youtu.be/wvZnjpXQRdQ?si=MR2Xl_C9HqWCPaKg",
         complete: false
     },
     {
         id: 2,
-        title: "CSS Flexbox Tutorial",
-        description: "A comprehensive guide to CSS Flexbox layout.",
-        youtubeLink: "https://www.youtube.com/watch?v=JJSoEo8JSnc",
+        title: "The Basics",
+        description: "Dell Puckett teaches about open tuning, power chords, drone strings with melody, and blues progressions with turnaround.",
+        youtubeLink: "https://youtu.be/rYZF9OlnvqM?si=mLTUUzjXC_NpVuXv",
         complete: false
     },
     {
         id: 3,
-        title: "React.js Crash Course",
-        description: "Build a React.js application from scratch.",
-        youtubeLink: "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+        title: "Learn Chords in Minutes",
+        description: "In this beginner lesson Michael Bianconi, from Souther Fire Guitars, shows how to play some popular chords in a few different ways.",
+        youtubeLink: "https://youtu.be/2FWETe3QU3w?si=jPyR1z4DF92CoxPi",
         complete: false
     },
     {
         id: 4,
-        title: "HTML in 5 Minutes",
-        description: "Learn the fundamentals of HTML5.",
-        youtubeLink: "https://youtu.be/salY_Sm6mv4?si=-8crvTZbBPw8Az26",
+        title: "1-4-5 Blues",
+        description: "Mike Snowden teaches the blues in this beginner friendly lesson. Although he's playing with a slide at the beginning of the video, you don't need one to follow this lesson.",
+        youtubeLink: "https://youtu.be/fDF10p5nWxs?si=-r2l3-nfP0o3Xs-3",
         complete: false
     },
     {
         id: 5,
-        title: "Responsive Web Design",
-        description: "Create responsive websites using CSS media queries.",
-        youtubeLink: "https://www.youtube.com/watch?v=2KL-z9A56SQ",
+        title: "Sweet Home Alabama",
+        description: "In this lesson, Uncle Mark teaches you how to play a one finger \"bar chord\" version of Sweet Home Alabama by Lynyrd Skynyrd.",
+        youtubeLink: "https://youtu.be/nGz2thUzqSE?si=KdikN8WqVvy50p2W",
         complete: false
     },
     {
@@ -48,11 +48,11 @@ const videos = [
 const courses = [
     {
         title: "Getting Started",
-        videoIds: [1, 2, 4]
+        videoIds: [1, 2, 3, 4]
     },
     {
-        title: "Advanced CSS",
-        videoIds: [2, 2, 3, 4, 5, 6]
+        title: "Songs for Beginners",
+        videoIds: [5, 6, 7, 8, 9, 10]
     },
     {
         title: "Node.js Development",
@@ -83,6 +83,7 @@ function displayCourses() {
         }
     });
 }
+
 // Function to update video list based on selected course
 function updateVideoList(videoIds) {
     const videoList = document.getElementById("videoList");
@@ -190,3 +191,4 @@ function getYouTubeVideoId(url) {
 
 // Display initial list of courses and populate the first course on load
 displayCourses();
+
