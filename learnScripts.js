@@ -73,15 +73,34 @@ function displayCourses() {
         courseItem.addEventListener("click", () => {
             updateVideoList(course.videoIds);
             courseTitleElement.textContent = course.title;
+            updateURLWithCourseAndVideo(course.title, course.videoIds[0]); // Update URL with course title and first video ID
         });
         coursesList.appendChild(courseItem);
 
-        // Display the first course on page load
-        if (index === 0) {
+        // Display the first course on page load if no URL params are present
+        if (index === 0 && !window.location.search) {
             updateVideoList(course.videoIds); // Populate video list for the first course
             courseTitleElement.textContent = course.title; // Set course title
+            updateURLWithCourseAndVideo(course.title, course.videoIds[0]); // Update URL with course title and first video ID
         }
     });
+
+    // Check URL parameters and display appropriate course and video on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseTitle = urlParams.get('course');
+    const videoId = parseInt(urlParams.get('video'), 10);
+
+    if (courseTitle && videoId) {
+        const course = courses.find(c => c.title === courseTitle);
+        if (course) {
+            updateVideoList(course.videoIds);
+            courseTitleElement.textContent = course.title;
+            const video = videos.find(v => v.id === videoId);
+            if (video) {
+                playVideo(video);
+            }
+        }
+    }
 }
 
 // Function to update video list based on selected course
@@ -116,9 +135,10 @@ function updateVideoList(videoIds) {
             listItem.appendChild(completionIcon);
             videoList.appendChild(listItem);
 
-            // Clicking on video list item should play the video
+            // Clicking on video list item should play the video and update the URL
             listItem.addEventListener("click", () => {
                 playVideo(video); // Play the video
+                updateURLWithCourseAndVideo(document.getElementById("course").textContent, video.id); // Update URL with current course and video ID
             });
 
             // Toggle completion status on icon click
@@ -151,16 +171,12 @@ function updateVideoList(videoIds) {
     }
 }
 
-
-
-
 // Function to save video completion status to local storage
 function saveVideoCompletionStatus(videoId, completed) {
     localStorage.setItem(`video_${videoId}_completed`, completed);
 }
 
-
-// Function to play selected video
+// Function to play selected video and update the URL
 function playVideo(video) {
     const videoId = getYouTubeVideoId(video.youtubeLink);
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
@@ -189,6 +205,13 @@ function getYouTubeVideoId(url) {
     }
 }
 
+// Function to update URL with course and video ID
+function updateURLWithCourseAndVideo(courseTitle, videoId) {
+    const url = new URL(window.location);
+    url.searchParams.set('course', courseTitle);
+    url.searchParams.set('video', videoId);
+    window.history.pushState({}, '', url);
+}
+
 // Display initial list of courses and populate the first course on load
 displayCourses();
-
