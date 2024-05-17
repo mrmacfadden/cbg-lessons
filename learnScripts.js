@@ -344,3 +344,60 @@ function updateURLWithCourseAndVideo(courseTitle, videoId) {
 
 // Display initial list of courses and populate the first course on load
 displayCourses();
+
+
+
+const shareButton = document.getElementById('learnShareButton');
+//const url = window.location.href;
+const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
+const queryParams = window.location.search; // Get query parameters if they exist
+
+const shareMessage = `Check out this cigar box guitar lesson: ${baseUrl}${queryParams}`;
+
+shareButton.addEventListener('click', function() {
+    //const url = window.location.href;
+    const baseUrl = window.location.origin + window.location.pathname; // Get base URL without query parameters
+    const queryParams = window.location.search; // Get query parameters if they exist
+    const shareMessage = `Check out this cigar box guitar lesson: ${baseUrl}${queryParams}`;
+    if (navigator.share) {
+        // Share using Web Share API (mobile)
+        navigator.share({
+            title: document.title,
+            text: `Check out this cigar box guitar lesson: ${baseUrl}${queryParams}`
+        })
+    } else {
+        // Copy URL to clipboard (non-mobile)
+        copyToClipboard(shareMessage);
+    }
+});
+
+// Function to display a message on the webpage
+function displayMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = message;
+    messageElement.style.backgroundColor = 'rgba(0, 123, 255, 1)';
+    messageElement.style.color = '#fff';
+    messageElement.style.padding = '10px';
+    messageElement.style.position = 'fixed';
+    messageElement.style.top = '70px';
+    messageElement.style.left = '50%';
+    messageElement.style.transform = 'translate(-50%, -50%)';
+    messageElement.style.zIndex = '9999';
+    document.body.appendChild(messageElement);
+
+    // Remove the message after a few seconds (e.g., 3 seconds)
+    setTimeout(() => {
+        messageElement.remove();
+    }, 3000); // Remove after 3 seconds
+}
+
+// Function to copy text to clipboard
+function copyToClipboard(text) {
+    const textField = document.createElement('textarea');
+    textField.value = text;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand('copy');
+    document.body.removeChild(textField);
+    displayMessage("Link copied to clipboard!");
+}
