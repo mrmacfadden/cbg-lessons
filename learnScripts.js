@@ -37,26 +37,91 @@ const videos = [
     },
     {
         id: 6,
-        title: "Node.js Tutorial for Beginners",
-        description: "Get started with Node.js and build server-side applications.",
-        youtubeLink: "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+        title: "Strumming Techniques",
+        description: "In this beginnger cirgar box guitar lesson, Brent Robitaille teaches different strumming techniques.",
+        youtubeLink: "https://youtu.be/vpx-VXjBFQw?si=YA1-4_ro_e1RUjOf",
+        complete: false
+    },
+    {
+        id: 7,
+        title: "10 Major Chord Shapes",
+        description: "In this beginnger cirgar box guitar lesson, Brent Robitaille teaches 10 major chord shapes you should know.",
+        youtubeLink: "https://youtu.be/dTjBvnKqEXo?si=X_A-jSPbbrhBA3tQ",
+        complete: false
+    },
+    {
+        id: 8,
+        title: "10 Minor Chord Shapes",
+        description: "In this beginnger cirgar box guitar lesson, Brent Robitaille teaches 10 minor chord shapes you should know.",
+        youtubeLink: "https://youtu.be/sSXzSAythE4?si=i8hbtjml-saFiegF",
+        complete: false
+    },
+    {
+        id: 9,
+        title: "Take Me Home, Country Road",
+        description: "In this Lesson, Glenn Watt teaches you hoe to play a one figer version \"bar chord\" version of Take Me Home, Country Road by John Denver.",
+        youtubeLink: "https://youtu.be/4SllWzPwXF4?si=d5pfXdqfhLd_L5-_",
+        complete: false
+    },
+    {
+        id: 10,
+        title: "Bad Moon Rising",
+        description: "In this Lesson, Glenn Watt teaches you hoe to play a one figer version \"bar chord\" version of Bad Moon Rising by Credence Clearwater Revival.",
+        youtubeLink: "https://youtu.be/ydfH69uqJ9Q?si=TPhXbN3IzKy-K84S",
+        complete: false
+    },
+    {
+        id: 11,
+        title: "La Grange",
+        description: "In this lesson, Chickenbone John teaches a one chord favorite, based on John Lee Hooker's one chord boogie style - La Grange by ZZ Top",
+        youtubeLink: "https://youtu.be/K3Q-Q2bDHlU?si=Wie384qj9G-cvBAq",
+        complete: false
+    },
+    {
+        id: 12,
+        title: "Ring of Fire",
+        description: "In this lesson, David Dempsey teaches you Ring of Fire by Johnny Cash.",
+        youtubeLink: "https://youtu.be/Dm_gEJx6Dw8?si=yDxzg1FPjlTs_cRa",
+        complete: false
+    },
+    {
+        id: 13,
+        title: "Travis Finger Picking",
+        description: "In this beginnger cirgar box guitar lesson, Brent Robitaille teaches you how to fingerpick on your 3 cigar box guitar.",
+        youtubeLink: "https://youtu.be/U0oNDbegpSo?si=ZVoM3PKdM9oghOei",
+        complete: false
+    },
+    {
+        id: 14,
+        title: "Right Hand Figer Picking for Blues",
+        description: "In this lesson, Shane Speal teaches you to develop a deep blues fingerpicking style on a 3-string cigar box guitar.",
+        youtubeLink: "https://youtu.be/x99u46oZFJI?si=svg4xfDHUBhGpmHY",
         complete: false
     }
+    /*
+    {
+        id: ,
+        title: "",
+        description: "",
+        youtubeLink: "",
+        complete: false
+    }
+    */
 ];
 
 // Array of courses
 const courses = [
     {
         title: "Getting Started",
-        videoIds: [1, 2, 3, 4]
+        videoIds: [1, 2, 3, 6, 7, 8, 4]
     },
     {
         title: "Songs for Beginners",
-        videoIds: [5, 6, 7, 8, 9, 10]
+        videoIds: [5, 9, 10, 11, 12]
     },
     {
-        title: "Node.js Development",
-        videoIds: [5, 3, 6]
+        title: "Finger Picking",
+        videoIds: [13,14]
     }
 ];
 // Function to display courses and populate the first course on load
