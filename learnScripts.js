@@ -97,6 +97,62 @@ const videos = [
         description: "In this lesson, Shane Speal teaches you to develop a deep blues fingerpicking style on a 3-string cigar box guitar.",
         youtubeLink: "https://youtu.be/x99u46oZFJI?si=svg4xfDHUBhGpmHY",
         complete: false
+    },
+    {
+        id: 15,
+        title: "Introduction to Music Theory",
+        description: "In this lesson, Dell Puckett teaches the basics for understanding the major scale, the chord sequence (numbers), and what makes a chord a major or a minor.",
+        youtubeLink: "https://youtu.be/MQz2alrPCx4?si=NaU_E8VaPC-mkR3j",
+        complete: false
+    },
+    {
+        id: 16,
+        title: "Understanding Intervals",
+        description: "In this lesson, Dell Puckett teaches intervals AKA the \"distance\" between two notes.",
+        youtubeLink: "https://youtu.be/CF6YKTr1PQo?si=kx5povsnSIHajzJz",
+        complete: false
+    },
+    {
+        id: 17,
+        title: "The Universal Chord Progression",
+        description: "In this lesson, Dell Puckett demonstrates the 1, 5, 6, 4 chord progression adapted for the 3 String Cigar Box Guitar.",
+        youtubeLink: "https://youtu.be/uEVwUufs86Q?si=2pFQhyn9CAU6xUmu",
+        complete: false
+    },
+    {
+        id: 18,
+        title: "Time, Meter, and Rhythm",
+        description: "In this lesson, Pat Curley teaches music theory fundamentals including Time, Meter, and Rythm.",
+        youtubeLink: "https://youtu.be/7gIJy7jE7z8?si=c8TINLEO6aRG4ex2",
+        complete: false
+    },
+    {
+        id: 19,
+        title: "How To Use a Pick",
+        description: "In this lesson, Pat Curley teaches proper picking technique on a cigar box guitar.",
+        youtubeLink: "https://youtu.be/4MoxQ6IomNE?si=r-3jOaH5xG8OdKwe",
+        complete: false
+    },
+    {
+        id: 20,
+        title: "3 String Country Blues",
+        description: "In this lesson, Michael Bianconi teaches a three string cigar box guitar country blues tune.",
+        youtubeLink: "https://youtu.be/pC8sfg9QfW0?si=QAenfsFPb8o0CF6t",
+        complete: false
+    },
+    {
+        id: 21,
+        title: "Play The 12 Bar Blues",
+        description: "In this lesson, Geoff Saunders of Crazy Possum Guitars teaches the 12 bar blues.",
+        youtubeLink: "https://youtu.be/GtHdYKJT60I?si=YVPzrxrooC-qL7zT",
+        complete: false
+    },
+    {
+        id: 22,
+        title: "The 12 Bar Blues Box",
+        description: "In this lesson, Dell Puckett breaks down and explains the 12 bar blues progression using a simple box diagram.",
+        youtubeLink: "https://youtu.be/fIzUhmhjV-Y?si=43wm0Kbw-Jf0iWn-",
+        complete: false
     }
     /*
     {
@@ -113,7 +169,7 @@ const videos = [
 const courses = [
     {
         title: "Getting Started",
-        videoIds: [1, 2, 3, 6, 7, 8, 4]
+        videoIds: [1, 2, 19, 3, 6, 7, 8, 4]
     },
     {
         title: "Songs for Beginners",
@@ -121,7 +177,15 @@ const courses = [
     },
     {
         title: "Finger Picking",
-        videoIds: [13,14]
+        videoIds: [13, 14]
+    },
+    {
+        title: "Music Theory",
+        videoIds: [15, 16, 17, 18, 22]
+    },
+    {
+        title: "Learn The Blues",
+        videoIds: [4, 20, 21, 14, 22]
     }
 ];
 // Function to display courses and populate the first course on load
